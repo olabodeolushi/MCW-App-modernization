@@ -18,7 +18,7 @@
             }
         },
         "adminPassword": {
-            "defaultValue": "Password.1!!",
+            "defaultValue": "1!!@XUappPUJ",
             "type": "securestring",
             "minLength": 8,
             "maxLength": 128,
@@ -34,7 +34,7 @@
         "uniqueSqlServerName": "[concat(parameters('sqlServerName'), '-', uniqueString(resourceGroup().id))]",
         "storageAccountName": "[concat('parts', uniqueString(resourceGroup().id))]",
         
-        "virtualMachineSize": "Standard_D2s_v3",
+        "virtualMachineSize": "Standard_B2s",
 
         "webVirtualMachineName": "WebVM",
         "webNetworkSecurityGroupName": "[concat(variables('webVirtualMachineName'), '-nsg')]",
@@ -97,7 +97,7 @@
                     "osDisk": {
                         "createOption": "FromImage",
                         "managedDisk": {
-                            "storageAccountType": "Premium_LRS"
+                            "storageAccountType": "Standard_HDD"
                         }
                     },
                     "imageReference": {
@@ -167,7 +167,7 @@
                     "osDisk": {
                         "createOption": "FromImage",
                         "managedDisk": {
-                            "storageAccountType": "Premium_LRS"
+                            "storageAccountType": "Standard_HDD"
                         }
                     },
                     "imageReference": {
