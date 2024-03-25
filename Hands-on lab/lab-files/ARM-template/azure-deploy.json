@@ -41,7 +41,7 @@
         "webNetworkInterfaceName": "[concat(variables('webVirtualMachineName'), '-nic')]",
         "webPublicIpAddressName": "[concat(variables('webVirtualMachineName'), '-ip')]",
 
-        "sqlVirtualMachineName": "SqlServer2008",
+        "sqlVirtualMachineName": "SqlServer2012",
         "sqlNetworkSecurityGroupName": "[concat(variables('sqlVirtualMachineName'), '-nsg')]",
         "sqlNetworkInterfaceName": "[concat(variables('sqlVirtualMachineName'), '-nic')]",
         "sqlPublicIpAddressName": "[concat(variables('sqlVirtualMachineName'), '-ip')]",
@@ -172,8 +172,8 @@
                     },
                     "imageReference": {
                         "publisher": "MicrosoftSQLServer",
-                        "offer": "SQL2008R2SP3-WS2008R2SP1",
-                        "sku": "Standard",
+                        "offer": "SQL2012SP4-WS2012R2",
+			"sku": "Standard",
                         "version": "latest"
                     }
                 },
