@@ -28,7 +28,7 @@
         }
     },
     "variables": {
-		"githubBranchName": "main",
+		"githubBranchName": "dev",
         "location": "[resourceGroup().location]",
         "databaseName": "parts",
         "uniqueSqlServerName": "[concat(parameters('sqlServerName'), '-', uniqueString(resourceGroup().id))]",
@@ -52,9 +52,9 @@
         "subnetPrefix": "176.16.0.0/24",
 
         "webCustomScriptFileName": "configure-webvm.ps1",
-        "webCustomScriptUri": "[concat('https://raw.githubusercontent.com/olabodeolushi/MCW-App-modernization/', variables('githubBranchName'),'/Hands-on%20lab/lab-files/ARM-template/', variables('webCustomScriptFileName'))]",
+        "webCustomScriptUri": "[concat('https://raw.githubusercontent.com/olabodeolushi/MCW-App-modernization/', variables('githubBranchName'),'/ns/', variables('webCustomScriptFileName'))]",
         "sqlCustomScriptFileName": "configure-sqlvm.ps1",
-        "sqlCustomScriptUri": "[concat('https://raw.githubusercontent.com/olabodeolushi/MCW-App-modernization/', variables('githubBranchName'),'/Hands-on%20lab/lab-files/ARM-template/', variables('sqlCustomScriptFileName'))]",
+        "sqlCustomScriptUri": "[concat('https://raw.githubusercontent.com/olabodeolushi/MCW-App-modernization/', variables('githubBranchName'),'/ns/', variables('sqlCustomScriptFileName'))]",
 
         "dmsName": "[concat('parts-dms-', uniqueString(resourceGroup().id))]",
         "hostingPlanName": "[concat(resourceGroup().name, '-asp-ln-fn')]",

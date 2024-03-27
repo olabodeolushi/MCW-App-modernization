@@ -42,7 +42,7 @@ Disable-InternetExplorerESC
 
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
-$branchName = "main"
+$branchName = "dev"
 
 # Download and extract the starter solution files
 # ZIP File sometimes gets corrupted
@@ -63,13 +63,13 @@ Rename-Item $item -NewName "MCW-App-modernization-$branchName"
 $item = "C:\MCW\MCW-App-modernization-$branchName"
 Write-Host "Server=$SqlIP;Database=PartsUnlimited;User Id=PUWebSite;Password=$SqlPass;"
 # The config.release.json file is populated with configuration data during compile and release from VS.  config.json is used by the solution on the WebM.
-((Get-Content -path "$item\Hands-on-lab\lab-files\src\src\PartsUnlimitedWebsite\config.release.json" -Raw) -replace 'SETCONNECTIONSTRING',"Server=$SqlIP;Database=PartsUnlimited;User Id=PUWebSite;Password=$SqlPass;") | Set-Content -Path "$item\Hands-on-lab\lab-files\src\src\PartsUnlimitedWebsite\config.json"
+((Get-Content -path "$item\ns\config.release.json" -Raw) -replace 'SETCONNECTIONSTRING',"Server=$SqlIP;Database=PartsUnlimited;User Id=PUWebSite;Password=$SqlPass;") | Set-Content -Path "$item\Hands-on-lab\lab-files\src\src\PartsUnlimitedWebsite\config.json"
 
 # Downloading Deferred Installs
 # Download App Service Migration Assistant 
 (New-Object System.Net.WebClient).DownloadFile('https://appmigration.microsoft.com/api/download/windows/AppServiceMigrationAssistant.msi', 'C:\AppServiceMigrationAssistant.msi')
 # Download Edge 
-(New-Object System.Net.WebClient).DownloadFile('https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/e2d06b69-9e44-45e1-bdf5-b3b827fe06b2/MicrosoftEdgeEnterpriseX64.msi', 'C:\MicrosoftEdgeEnterpriseX64.msi')
+(New-Object System.Net.WebClient).DownloadFile('https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=en&brand=M100/MicrosoftEdgeSetup.exe', 'C:\MicrosoftEdgeSetup.exe')
 # Download 3.1.4 SDK
 (New-Object System.Net.WebClient).DownloadFile('https://download.visualstudio.microsoft.com/download/pr/70062b11-491c-403c-91db-9d84462ee292/5db435e39128cbb608e76bf5111ab3dc/dotnet-sdk-3.1.413-win-x64.exe', 'C:\dotnet-sdk-3.1.413-win-x64.exe')
 
