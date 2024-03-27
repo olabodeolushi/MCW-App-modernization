@@ -18,7 +18,7 @@
             }
         },
         "adminPassword": {
-            "defaultValue": "1!!@XUappPUJ",
+            "defaultValue": "Password.1!!",
             "type": "securestring",
             "minLength": 8,
             "maxLength": 128,
@@ -34,14 +34,14 @@
         "uniqueSqlServerName": "[concat(parameters('sqlServerName'), '-', uniqueString(resourceGroup().id))]",
         "storageAccountName": "[concat('parts', uniqueString(resourceGroup().id))]",
         
-        "virtualMachineSize": "Standard_B2s",
+        "virtualMachineSize": "Standard_D2s_v3",
 
         "webVirtualMachineName": "WebVM",
         "webNetworkSecurityGroupName": "[concat(variables('webVirtualMachineName'), '-nsg')]",
         "webNetworkInterfaceName": "[concat(variables('webVirtualMachineName'), '-nic')]",
         "webPublicIpAddressName": "[concat(variables('webVirtualMachineName'), '-ip')]",
 
-        "sqlVirtualMachineName": "SqlServer2012",
+        "sqlVirtualMachineName": "SqlServer2008",
         "sqlNetworkSecurityGroupName": "[concat(variables('sqlVirtualMachineName'), '-nsg')]",
         "sqlNetworkInterfaceName": "[concat(variables('sqlVirtualMachineName'), '-nic')]",
         "sqlPublicIpAddressName": "[concat(variables('sqlVirtualMachineName'), '-ip')]",
@@ -52,9 +52,9 @@
         "subnetPrefix": "176.16.0.0/24",
 
         "webCustomScriptFileName": "configure-webvm.ps1",
-        "webCustomScriptUri": "[concat('https://raw.githubusercontent.com/olabodeolushi/MCW-App-modernization/', variables('githubBranchName'),'/Hands-on%20lab/lab-files/ARM-template/', variables('webCustomScriptFileName'))]",
+        "webCustomScriptUri": "[concat('https://raw.githubusercontent.com/microsoft/MCW-App-modernization/', variables('githubBranchName'),'/Hands-on%20lab/lab-files/ARM-template/', variables('webCustomScriptFileName'))]",
         "sqlCustomScriptFileName": "configure-sqlvm.ps1",
-        "sqlCustomScriptUri": "[concat('https://raw.githubusercontent.com/olabodeolushi/MCW-App-modernization/', variables('githubBranchName'),'/Hands-on%20lab/lab-files/ARM-template/', variables('sqlCustomScriptFileName'))]",
+        "sqlCustomScriptUri": "[concat('https://raw.githubusercontent.com/microsoft/MCW-App-modernization/', variables('githubBranchName'),'/Hands-on%20lab/lab-files/ARM-template/', variables('sqlCustomScriptFileName'))]",
 
         "dmsName": "[concat('parts-dms-', uniqueString(resourceGroup().id))]",
         "hostingPlanName": "[concat(resourceGroup().name, '-asp-ln-fn')]",
@@ -97,7 +97,7 @@
                     "osDisk": {
                         "createOption": "FromImage",
                         "managedDisk": {
-                            "storageAccountType": "Standard_LRS"
+                            "storageAccountType": "Premium_LRS"
                         }
                     },
                     "imageReference": {
@@ -172,8 +172,8 @@
                     },
                     "imageReference": {
                         "publisher": "MicrosoftSQLServer",
-                        "offer": "SQL2012SP4-WS2012R2",
-			"sku": "Standard",
+                        "offer": "SQL2008R2SP3-WS2008R2SP1",
+                        "sku": "Standard",
                         "version": "latest"
                     }
                 },

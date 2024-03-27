@@ -54,7 +54,7 @@ function Setup-Sql {
     #Add snap-in
     Add-PSSnapin SqlServerCmdletSnapin* -ErrorAction SilentlyContinue
 
-    $ServerName = 'SQLSERVER2012'
+    $ServerName = 'SQLSERVER2008'
     $DatabaseName = 'PartsUnlimited'
     
     $Cmd = "USE [master] CREATE DATABASE [$DatabaseName]"
