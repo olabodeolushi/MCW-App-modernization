@@ -26,19 +26,19 @@ Write-Host "Installing App Service Migration Assistant..."
 Start-Process -file 'C:\AppServiceMigrationAssistant.msi ' -arg '/qn /l*v C:\asma_install.txt' -passthru | wait-process
 
 # Install Edge
-Wait-Install
-Write-Host "Installing Edge..."
-Start-Process -file 'C:\MicrosoftEdgeEnterpriseX64.msi' -arg '/qn /l*v C:\edge_install.txt' -passthru | wait-process
+# Wait-Install
+# Write-Host "Installing Edge..."
+# Start-Process -file 'C:\MicrosoftEdgeEnterpriseX64.msi' -arg '/qn /l*v C:\edge_install.txt' -passthru | wait-process
 
 
 # Copy Web Site Files
 Wait-Install
 Write-Host "Copying default website files..."
-Expand-Archive -LiteralPath "C:\MCW\MCW-App-modernization-$branchName\Hands-on-lab\lab-files\web-deploy-files.zip" -DestinationPath 'C:\inetpub\wwwroot' -Force
+Expand-Archive -LiteralPath "C:\MCW\MCW-App-modernization-$branchName\ns\web-deploy-files.zip" -DestinationPath 'C:\inetpub\wwwroot' -Force
 
 # Copy the database connection string to the web app.
 Write-Host "Updating config.json with the SQL IP Address and connection string information."
-Copy-Item "C:\MCW\MCW-App-modernization-$branchName\Hands-on-lab\lab-files\src\src\PartsUnlimitedWebsite\config.json" -Destination 'C:\inetpub\wwwroot' -Force
+Copy-Item "C:\MCW\MCW-App-modernization-$branchName\ns\config.json" -Destination 'C:\inetpub\wwwroot' -Force
 
 # Install .NET Core 3.1 SDK
 Wait-Install
