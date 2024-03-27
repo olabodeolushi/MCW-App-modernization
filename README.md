@@ -16,7 +16,7 @@ In this Project, you gain a better understanding of the steps involved in modern
 
 At the end of this project, your ability to design and implement a modernization plan for organizations looking to move services from on-premises to the cloud will be improved.
 
-### Hands-on lab
+### Hands-on-lab
 
 In this hands-on Project, you implement the steps to move a legacy on-premises application to Azure, including upgrading and migrating the database to Azure and updating the application to take advantage of serverless and cloud services.
 
